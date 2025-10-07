@@ -1,0 +1,21 @@
+# Test configuration file
+database:
+  host: "localhost"
+  port: 3306
+  username: "test_user"
+  password: "test_password"
+  dbname: "test_db"
+
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+
+jwt:
+  secret: "test-secret-key"
+  expiration_hours: 24
+
+server:
+  port: 8080
+  mode: "test"

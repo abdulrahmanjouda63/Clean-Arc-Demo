@@ -1,0 +1,16 @@
+server:
+  port: ":8080"
+
+db:
+  driver: "sqlite"
+  dsn: "test.db"
+
+redis:
+  enabled: false
+  addr: "redis:6379"
+  password: "452836"
+  db: 0
+
+jwt:
+  secret: "change-this-secret"
+  expiration_hours: 72

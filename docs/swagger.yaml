@@ -1,0 +1,203 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: A comprehensive API for user management with authentication, registration,
+    and profile management
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: http://swagger.io/terms/
+  title: User Management API
+  version: 1.0.0
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate user with email and password
+      parameters:
+      - description: User login credentials
+        in: body
+        name: request
+        required: true
+        schema:
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login successful
+          schema:
+            properties:
+              token:
+                type: string
+              user:
+                properties:
+                  email:
+                    type: string
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                type: object
+            type: object
+        "400":
+          description: Bad request - validation error
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+        "401":
+          description: Unauthorized - invalid credentials
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+      summary: User login
+      tags:
+      - Authentication
+  /profile:
+    get:
+      consumes:
+      - application/json
+      description: Get the profile information of the authenticated user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Profile retrieved successfully
+          schema:
+            properties:
+              message:
+                type: string
+              user_id:
+                type: integer
+            type: object
+        "401":
+          description: Unauthorized - invalid or missing token
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get user profile
+      tags:
+      - User
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user account with email and password
+      parameters:
+      - description: User registration data
+        in: body
+        name: request
+        required: true
+        schema:
+          properties:
+            email:
+              type: string
+            name:
+              type: string
+            password:
+              type: string
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: User successfully registered
+          schema:
+            properties:
+              email:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+            type: object
+        "400":
+          description: Bad request - validation error
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+        "409":
+          description: Conflict - user already exists
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+      summary: Register a new user
+      tags:
+      - Authentication
+  /set-redis-key:
+    post:
+      consumes:
+      - application/json
+      description: Store a key-value pair in Redis cache
+      parameters:
+      - description: Redis key-value data
+        in: body
+        name: request
+        required: true
+        schema:
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Key set successfully
+          schema:
+            properties:
+              key:
+                type: string
+              message:
+                type: string
+              value:
+                type: string
+            type: object
+        "400":
+          description: Bad request - validation error
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+        "500":
+          description: Internal server error - Redis operation failed
+          schema:
+            properties:
+              error:
+                type: string
+            type: object
+      summary: Set Redis key-value pair
+      tags:
+      - Redis
+securityDefinitions:
+  BearerAuth:
+    description: Type "Bearer" followed by a space and JWT token.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
