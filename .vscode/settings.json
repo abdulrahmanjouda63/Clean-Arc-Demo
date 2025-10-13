@@ -13,6 +13,7 @@
         "easyjson",
         "fsnotify",
         "goccy",
+        "godoc",
         "gomail",
         "gonic",
         "gopkg",
@@ -48,6 +49,7 @@
         "ugorji",
         "urlesc",
         "vasile",
+        "wrongpassword",
         "xxhash"
     ]
 }

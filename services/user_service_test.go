@@ -40,7 +40,7 @@ func TestUserService_Register(t *testing.T) {
 				existingUser := &models.User{ID: 1, Email: "test@example.com"}
 				mockRepo.On("FindByEmail", "test@example.com").Return(existingUser, nil)
 			},
-			expectedErr: "user already exists",
+			expectedErr: "user with this email already exists",
 		},
 		{
 			name:     "empty password",

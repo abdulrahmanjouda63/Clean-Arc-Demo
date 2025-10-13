@@ -36,7 +36,7 @@ func AuthMiddleware(secret string) gin.HandlerFunc {
 		}
 
 		if claims, ok := tok.Claims.(jwt.MapClaims); ok {
-			c.Set("user_id", claims["sub"])
+			c.Set("user_id", claims["user_id"])
 		}
 
 		c.Next()

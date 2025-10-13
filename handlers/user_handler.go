@@ -3,6 +3,7 @@ package handlers
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"temp/services"
 
@@ -102,18 +103,35 @@ func (h *UserHandler) Profile(c *gin.Context) {
 		return
 	}
 
-	userID, ok := userIDRaw.(float64)
-	if !ok {
+	var userID uint
+	switch v := userIDRaw.(type) {
+	case uint:
+		userID = v
+	case float64:
+		userID = uint(v)
+	case string:
+		parsed, err := parseUintString(v)
+		if err != nil {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "invalid user ID format"})
+			return
+		}
+		userID = uint(parsed)
+	default:
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "invalid user ID format"})
 		return
 	}
-	
-	if userID <= 0 {
+
+	if userID == 0 {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "invalid user ID"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "this is a protected route", "user_id": uint(userID)})
+	c.JSON(http.StatusOK, gin.H{"message": "this is a protected route", "user_id": float64(userID)})
+}
+
+// parseUintString tries to parse a string to uint64
+func parseUintString(s string) (uint64, error) {
+	return strconv.ParseUint(s, 10, 64)
 }
 
 // SetRedisKey godoc

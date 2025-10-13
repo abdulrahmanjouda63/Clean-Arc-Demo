@@ -57,15 +57,15 @@ func (s *UserService) Register(name, email, password string) (*models.User, erro
 		return nil, err
 	}
 
-		// Store user registration in Redis for demonstration
-		if global.Redis != nil {
-			ctx := context.Background()
-			redisKey := fmt.Sprintf("user:registered:%s", u.Email)
-			if err := global.Redis.Set(ctx, redisKey, u.ID, 10*time.Minute).Err(); err != nil {
-				// Log the error but don't fail registration if Redis fails
-				log.Printf("Failed to store user registration in Redis: %v", err)
-			}
+	// Store user registration in Redis for demonstration
+	if global.Redis != nil {
+		ctx := context.Background()
+		redisKey := fmt.Sprintf("user:registered:%s", u.Email)
+		if err := global.Redis.Set(ctx, redisKey, u.ID, 10*time.Minute).Err(); err != nil {
+			// Log the error but don't fail registration if Redis fails
+			log.Printf("Failed to store user registration in Redis: %v", err)
 		}
+	}
 
 	return u, nil
 }
@@ -82,8 +82,8 @@ func (s *UserService) Authenticate(email, password string) (string, *models.User
 
 	// create token
 	claims := jwt.MapClaims{
-		"sub": u.ID,
-		"exp": time.Now().Add(s.expDuration).Unix(),
+		"user_id": u.ID,
+		"exp":     time.Now().Add(s.expDuration).Unix(),
 	}
 	t := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	signed, err := t.SignedString([]byte(s.jwtSecret))
