@@ -1,0 +1,36 @@
+{"level":"INFO","timestamp":"2025-10-14T10:36:03.010+0300","caller":"Clean-Arc-Demo/main.go:58","msg":"Starting application initialization..."}
+{"level":"INFO","timestamp":"2025-10-14T10:36:03.012+0300","caller":"Clean-Arc-Demo/main.go:76","msg":"Initializing database..."}
+{"level":"FATAL","timestamp":"2025-10-14T10:36:03.080+0300","caller":"Clean-Arc-Demo/main.go:79","msg":"DB init error","error":"failed to connect mysql: Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)","stacktrace":"main.main\n\tD:/Self Projects/4.New Template/Clean-Arc-Demo/main.go:79\nruntime.main\n\tC:/Users/ebe/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.2.windows-amd64/src/runtime/proc.go:285"}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.518+0300","caller":"Clean-Arc-Demo/main.go:58","msg":"Starting application initialization..."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.522+0300","caller":"Clean-Arc-Demo/main.go:76","msg":"Initializing database..."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.527+0300","caller":"Clean-Arc-Demo/main.go:82","msg":"Database initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.527+0300","caller":"Clean-Arc-Demo/main.go:85","msg":"Initializing Redis..."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.527+0300","caller":"config/redis.go:44","msg":"Initializing Redis standalone","addr":"localhost:6379"}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.541+0300","caller":"config/redis.go:65","msg":"Redis initialized successfully"}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.542+0300","caller":"Clean-Arc-Demo/main.go:90","msg":"Redis initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.542+0300","caller":"Clean-Arc-Demo/main.go:93","msg":"Initializing repositories, services, and handlers..."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.566+0300","caller":"Clean-Arc-Demo/main.go:112","msg":"Repositories, services, and handlers initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:37:23.568+0300","caller":"Clean-Arc-Demo/main.go:123","msg":"Server listening","port":":8080"}
+{"level":"INFO","timestamp":"2025-10-14T10:37:47.734+0300","caller":"handlers/user_handler.go:99","msg":"User logged in successfully","user_id":7,"email":"AhmedAdam@example.com"}
+{"level":"INFO","timestamp":"2025-10-14T10:37:47.735+0300","caller":"middlewares/logging.go:52","msg":"HTTP Request","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","latency":0.0675466}
+{"level":"INFO","timestamp":"2025-10-14T10:38:01.958+0300","caller":"handlers/user_handler.go:124","msg":"Profile accessed","user_id":7}
+{"level":"INFO","timestamp":"2025-10-14T10:38:01.958+0300","caller":"middlewares/logging.go:52","msg":"HTTP Request","status":200,"method":"GET","path":"/api/v1/profile","query":"","ip":"::1","latency":0.0006788}
+{"level":"INFO","timestamp":"2025-10-14T10:56:56.848+0300","caller":"Clean-Arc-Demo/main.go:183","msg":"Shutting down gracefully..."}
+{"level":"INFO","timestamp":"2025-10-14T10:56:56.850+0300","caller":"config/redis.go:72","msg":"Closing Redis connection"}
+{"level":"INFO","timestamp":"2025-10-14T10:56:56.851+0300","caller":"Clean-Arc-Demo/main.go:199","msg":"Shutdown complete"}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.577+0300","caller":"Clean-Arc-Demo/main.go:58","msg":"Starting application initialization..."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.580+0300","caller":"Clean-Arc-Demo/main.go:76","msg":"Initializing database..."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.587+0300","caller":"Clean-Arc-Demo/main.go:82","msg":"Database initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.587+0300","caller":"Clean-Arc-Demo/main.go:85","msg":"Initializing Redis..."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.587+0300","caller":"config/redis.go:44","msg":"Initializing Redis standalone","addr":"localhost:6379"}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.623+0300","caller":"config/redis.go:65","msg":"Redis initialized successfully"}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.623+0300","caller":"Clean-Arc-Demo/main.go:90","msg":"Redis initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.624+0300","caller":"Clean-Arc-Demo/main.go:93","msg":"Initializing repositories, services, and handlers..."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.651+0300","caller":"Clean-Arc-Demo/main.go:112","msg":"Repositories, services, and handlers initialized."}
+{"level":"INFO","timestamp":"2025-10-14T10:58:29.654+0300","caller":"Clean-Arc-Demo/main.go:123","msg":"Server listening","port":":8080"}
+{"level":"INFO","timestamp":"2025-10-14T10:58:51.856+0300","caller":"handlers/user_handler.go:99","msg":"User logged in successfully","user_id":7,"email":"AhmedAdam@example.com"}
+{"level":"INFO","timestamp":"2025-10-14T10:58:51.856+0300","caller":"middlewares/logging.go:53","msg":"HTTP Request","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","latency":0.135136}
+{"level":"INFO","timestamp":"2025-10-14T10:59:03.285+0300","caller":"handlers/user_handler.go:99","msg":"User logged in successfully","user_id":7,"email":"AhmedAdam@example.com"}
+{"level":"INFO","timestamp":"2025-10-14T10:59:03.285+0300","caller":"middlewares/logging.go:53","msg":"HTTP Request","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"::1","latency":0.1237234}
+{"level":"INFO","timestamp":"2025-10-14T10:59:16.533+0300","caller":"handlers/user_handler.go:124","msg":"Profile accessed","user_id":7}
+{"level":"INFO","timestamp":"2025-10-14T10:59:16.533+0300","caller":"middlewares/logging.go:53","msg":"HTTP Request","status":200,"method":"GET","path":"/api/v1/profile","query":"","ip":"::1","latency":0}

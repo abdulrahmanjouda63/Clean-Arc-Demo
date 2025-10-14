@@ -1,16 +1,64 @@
+# Server Configuration
 server:
   port: ":8080"
 
+# Database Configuration
 db:
   driver: "mysql"
   dsn: "root:root@tcp(127.0.0.1:3306)/temp?charset=utf8mb4&parseTime=True&loc=Local"
 
+# Redis Configuration
 redis:
   enabled: true
   addr: "localhost:6379"
-  password: "452836"
+  password: ""
   db: 0
+  
+  # Redis Sentinel Configuration (optional)
+  use_sentinel: false
+  sentinel_addrs:
+    - "localhost:26379"
+    - "localhost:26380"
+    - "localhost:26381"
+  sentinel_master: "mymaster"
+  sentinel_password: ""
 
+# JWT Configuration
 jwt:
-  secret: "change-this-secret"
-  expiration_hours: 72
+  secret: "your-secret-key-change-this-in-production"
+  expiration_hours: 24
+
+# Email Configuration
+email:
+  enabled: true
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  username: "your-email@gmail.com"
+  password: "your-app-password"
+  from: "noreply@yourapp.com"
+
+# CORS Configuration
+cors:
+  enabled: true
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+    - "*"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "PATCH"
+    - "DELETE"
+    - "OPTIONS"
+  allowed_headers:
+    - "Origin"
+    - "Content-Type"
+    - "Authorization"
+    - "Accept"
+    - "X-Requested-With"
+
+# Logging Configuration
+logging:
+  level: "info"  # debug, info, warn, error
+  output_path: "logs/app.log"  # or "stdout" for console only

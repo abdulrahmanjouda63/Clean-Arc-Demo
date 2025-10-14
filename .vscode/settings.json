@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "addrs",
         "afero",
         "alexcesaro",
         "apikey",
@@ -34,6 +35,8 @@
         "mattn",
         "mitchellh",
         "multierr",
+        "mydb",
+        "mymaster",
         "objx",
         "pflag",
         "pmezard",
@@ -45,6 +48,7 @@
         "stretchr",
         "subosito",
         "swaggo",
+        "Syncer",
         "twitchyliquid",
         "ugorji",
         "urlesc",
